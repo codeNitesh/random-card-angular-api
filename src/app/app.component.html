@@ -1,0 +1,31 @@
+<div class="app p-6 container-fluid">
+  <div class="row">
+    <div class="col col-md-6 offset-md-3">
+      <div class="text-center">
+        <!-- passing the data to child.. -->
+        <app-card [user]="user" *ngIf="user; else loadingblock"></app-card>
+
+        <ng-template #loadingblock>
+          <div class="text-center mt-5">
+            <div
+              class="spinner-border spinner-grow-mg text-white"
+              role="status"
+            ></div>
+            <div class="text-white mt-2">
+              loading...
+            </div>
+          </div>
+        </ng-template>
+        <button
+          *ngIf="user"
+          width="300px"
+          (click)="onReload()"
+          type="button"
+          class="btn btn-primary btn-lg btn-block"
+        >
+          New user
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
